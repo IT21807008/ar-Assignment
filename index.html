@@ -10,17 +10,28 @@
       
       <!-- Load your model -->
       <a-assets>
-        <a-asset-item id="my-model" src="model.glb"></a-asset-item>
+        <a-asset-item id="my-model" src="park_bench.glb"></a-asset-item>
       </a-assets>
 
       <!-- Marker detection -->
       <a-marker type="pattern" preset="hiro">
+         <a-ring 
+           position="0 0 0" 
+           rotation="-90 0 0" 
+           radius-inner="0.4" 
+           radius-outer="0.6" 
+           material="color: red; opacity: 0.5"
+           animation="property: material.color; from: red; to: yellow; dir: alternate; dur: 1000; loop: true; easing: easeInOutSine">
+  </a-ring>
         <a-entity 
-          gltf-model="#my-model" 
-          scale="0.5 0.5 0.5" 
-          position="0 0 0"
-          rotation="0 0 0">
-        </a-entity>
+         gltf-model="#my-model" 
+         scale="0.5 0.5 0.5" 
+         position="0 0 0"
+         rotation="0 0 0"
+         animation__bounce="property: position; dir: alternate; dur: 1000; easing: easeInOutSine; loop: true; to: 0 0.5 0"
+         animation__spin="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+</a-entity>
+     
       </a-marker>
 
       <a-entity camera></a-entity>
